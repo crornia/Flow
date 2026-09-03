@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Flow Prompt Typer</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<main>
+  <header>
+    <div>
+      <h1>Flow Prompt Typer <span>5.1</span></h1>
+      <p>Any Flow project · any Flow screen · any text box</p>
+    </div>
+    <div id="pageState" class="badge">Checking…</div>
+  </header>
+
+  <div id="targetState" class="target-state">Scanning this page…</div>
+
+  <textarea id="prompt" spellcheck="false" placeholder="Paste your Flow prompt here…"></textarea>
+
+  <section class="stats">
+    <div><strong id="mentions">0</strong><span>BOUND MENTIONS</span></div>
+    <div><strong id="unique">0</strong><span>UNIQUE ASSETS</span></div>
+  </section>
+  <div id="duplicates" class="duplicates"></div>
+
+  <label class="check"><input id="parseRawAt" type="checkbox" checked> Treat <code>@1</code>, <code>@1.01.jpg</code>, etc. as real Flow references</label>
+  <label class="check"><input id="replaceExisting" type="checkbox" checked> Clear the selected text box before typing</label>
+  <label class="check"><input id="protectFocus" type="checkbox" checked> Ignore page clicks while typing so focus cannot be stolen</label>
+
+  <details>
+    <summary>Advanced timing</summary>
+    <div class="grid">
+      <label>Filename key delay <input id="keyDelay" type="number" min="0" max="100" value="6"><span>ms</span></label>
+      <label>After @ <input id="afterAt" type="number" min="0" max="1500" value="45"><span>ms</span></label>
+      <label>Before Enter <input id="beforeEnter" type="number" min="0" max="3000" value="220"><span>ms</span></label>
+      <label>After Enter <input id="afterEnter" type="number" min="30" max="3000" value="160"><span>ms</span></label>
+    </div>
+  </details>
+
+  <div class="actions">
+    <button id="start" class="primary">Type into Current Page</button>
+    <button id="stop" disabled>Stop</button>
+  </div>
+  <div id="status" class="status">v5.1 does not store or depend on a Flow project URL. It injects into whichever normal tab is active when you open it.</div>
+  <p class="foot">If more than one text box exists, the page highlights all candidates and asks you which one to use.</p>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>
