@@ -35,7 +35,7 @@ Additional v5.1 fixes:
 
 ## Install
 
-1. Download or build `dist/Flow-Prompt-Typer-v5.1.0.zip`.
+1. Build `dist/Flow-Prompt-Typer-v5.1.0.zip` with `bash scripts/package.sh`, or download the package artifact from the GitHub Actions **Build extension package** workflow.
 2. Unzip it into a **permanent folder** that you will not rename, move, or delete.
 3. Open `chrome://extensions`.
 4. Enable **Developer mode**.
@@ -116,7 +116,7 @@ See [SECURITY.md](SECURITY.md).
 
 The current implementation is robust against the editor-rerender bug, but it is still partly timing-driven.
 
-Most importantly, the completion counter means the extension **attempted** each `@ → filename → Enter` binding sequence. It does not yet inspect Flow's autocomplete DOM and cryptographically/deterministically prove that the intended asset was selected. This is the main remaining reliability improvement for a future version.
+Most importantly, the completion counter means the extension **attempted** each `@ → filename → Enter` binding sequence. It does not yet inspect Flow's autocomplete DOM and deterministically verify that the intended asset was selected. This is the main remaining reliability improvement for a future version.
 
 Other limitations include cross-origin iframes, closed Shadow DOM, page navigation/reload during a run, and conflicts when DevTools or another debugger is already attached to the same tab.
 
@@ -126,13 +126,14 @@ See [docs/KNOWN-LIMITATIONS.md](docs/KNOWN-LIMITATIONS.md).
 
 No package manager or build step is required. The extension is plain HTML/CSS/JavaScript.
 
-Validate locally:
+Validate and package locally:
 
 ```bash
 node scripts/validate.mjs
+bash scripts/package.sh
 ```
 
-The repository also runs the same checks through GitHub Actions.
+GitHub Actions validates the source and publishes a built ZIP as a workflow artifact.
 
 ## Repository map
 
@@ -148,7 +149,7 @@ The repository also runs the same checks through GitHub Actions.
 ├── dist/
 ├── docs/
 ├── scripts/
-├── .github/workflows/validate.yml
+├── .github/workflows/
 ├── AGENTS.md
 ├── CHANGELOG.md
 ├── SECURITY.md
