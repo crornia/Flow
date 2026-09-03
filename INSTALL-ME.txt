@@ -1,0 +1,16 @@
+FLOW PROMPT TYPER v5.1.0 — INSTALL
+
+1. Get dist/Flow-Prompt-Typer-v5.1.0.zip or the extension source folder.
+2. Unzip/copy the runtime extension files into a PERMANENT folder before loading them in Chrome.
+   Example on macOS:
+   ~/Documents/Chrome Extensions/Flow-Prompt-Typer-v5.1.0
+3. Open chrome://extensions
+4. Remove older Flow Prompt Typer versions if present.
+5. Turn Developer mode ON.
+6. Click Load unpacked.
+7. Select the permanent Flow-Prompt-Typer-v5.1.0 folder.
+8. Do not move, rename, or delete that folder while the unpacked extension is installed.
+
+ERR_FILE_NOT_FOUND means Chrome lost access to the unpacked extension folder. It is not a Google Flow project error.
+
+Minimum supported Chrome version: 118.
