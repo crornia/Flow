@@ -109,9 +109,9 @@ When releasing a new version:
 3. update `VERSION` and, if needed, message namespace in `content.js`/`background.js`/`popup.js`;
 4. update `CHANGELOG.md`;
 5. update README/install docs where necessary;
-6. run validation;
-7. build `dist/Flow-Prompt-Typer-vX.Y.Z.zip` from runtime files only;
-8. inspect ZIP contents;
-9. commit source and distribution artifact together.
+6. run `node scripts/validate.mjs`;
+7. run `bash scripts/package.sh`;
+8. inspect the generated ZIP and test it with **Load unpacked**;
+9. commit the source changes. GitHub Actions independently validates the source and publishes the ZIP as a workflow artifact.
 
 See `docs/RELEASE.md` for the exact packaging list.
